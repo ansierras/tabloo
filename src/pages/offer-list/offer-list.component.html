@@ -1,0 +1,23 @@
+<div class="container">
+  <h3>{{gameOffers[0].name}}</h3>
+  <img [src]="gameOffers[0].imageUrl" class="img-thumbnail list-img">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Vendedor</th>
+        <th scope="col">Precio</th>
+        <th scope="col">Condición</th>
+        <th scope="col">Lugar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let g of gameOffers">
+        <td><img [src]="g.owner.avatarUrl" class="list-avatar">{{g.owner.name}}</td>
+        <td>{{g.price}}</td>
+        <td>{{g.condition}}</td>
+        <td>{{g.getLocationString()}}</td>
+        <td><button class="btn btn-primary btn-sm" [routerLink]="['../../detail/'+g.key]">Ver oferta</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

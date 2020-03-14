@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <h3>{{offer.name}}</h3>
+      <img [src]="offer.imageUrl" class="img-thumbnail">
+    </div>
+    <div class="col-md-8 pt-5">
+      <h4>Detalles</h4>
+      <div class="dropdown-divider"></div>
+      <p>Precio: COP${{offer.price}}</p>
+      <p>Condición: {{offer.condition}}</p>
+      <p><em>{{offer.getLocationString()}}</em></p>
+      <h4>Vendedor</h4>
+      <div class="dropdown-divider"></div>
+      <div class="card">
+        <div class="card-body">
+          <div class="row">
+            <div class="col">
+              <img [src]="offer.owner.avatarUrl" class="list-avatar">
+            </div>
+            <div class="col">
+              <h5 class="card-title">{{offer.owner.name}} {{offer.owner.lastName}}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+              <p class="card-text">email@gmail.com</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

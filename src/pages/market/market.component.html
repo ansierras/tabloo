@@ -1,0 +1,12 @@
+<div class="d-flex mt-5">
+  <div class="card ml-5" style="width: 18rem;" *ngFor="let g of games">
+    <img [src]="g.game.imageUrl" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{g.game.name}}</h5>
+      <p class="card-text">
+        Ofertas: {{g.count}}
+      </p>
+      <a href="#" class="btn btn-primary">Ver más</a>
+    </div>
+  </div>
+</div>
