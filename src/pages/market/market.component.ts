@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AppGameOffer } from 'src/models/app-game.class';
-import { DbGame } from 'src/models/interfaces';
+import { DbGame, AppGameOffer } from 'src/models/interfaces';
 import { OffersService } from 'src/services/offers.service';
 
 @Component({

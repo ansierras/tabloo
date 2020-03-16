@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { AppGameOffer } from 'src/models/app-game.class';
 import { OffersService } from 'src/services/offers.service';
 import { ActivatedRoute } from '@angular/router';
+import { AppGameOffer } from 'src/models/interfaces';
+import { ConstantHelper } from 'src/services/constant-helper.service';
 
 @Component({
   templateUrl: './offer-list.component.html',
@@ -12,7 +13,8 @@ export class OfferListComponent implements OnInit {
 
   constructor(
     private offersService: OffersService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    public constantHelper: ConstantHelper
     ) {
   }
 

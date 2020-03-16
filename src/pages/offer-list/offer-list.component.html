@@ -15,7 +15,7 @@
         <td><img [src]="g.owner.avatarUrl" class="list-avatar">{{g.owner.name}}</td>
         <td>{{g.price}}</td>
         <td>{{g.condition}}</td>
-        <td>{{g.getLocationString()}}</td>
+        <td>{{constantHelper.getLocationString(g.cityId)}}</td>
         <td><button class="btn btn-primary btn-sm" [routerLink]="['../../detail/'+g.key]">Ver oferta</button></td>
       </tr>
     </tbody>

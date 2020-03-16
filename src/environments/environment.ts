@@ -3,7 +3,17 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebase: {
+    apiKey: 'AIzaSyDJjrkXZ5_EqRejiYCoFeBr2EtYxQvFvvo',
+    authDomain: 'tabloo-dev.firebaseapp.com',
+    databaseURL: 'https://tabloo-dev.firebaseio.com',
+    projectId: 'tabloo-dev',
+    storageBucket: 'tabloo-dev.appspot.com',
+    messagingSenderId: '366998380891',
+    appId: '1:366998380891:web:6842f794c4b5ae6dab7a7e',
+    measurementId: 'G-JDD5KN64RV'
+  }
 };
 
 /*

@@ -1,4 +1,95 @@
 <div class="container">
-  <input type="text" [(ngModel)]="searchString">
-  <button (click)="onSearch()">search</button>
+  <h3>Crear nueva oferta</h3>
+  <div class="dropdown-divider"></div>
+  <div class="row">
+    <div class="col-md-4">
+      <h4>Primero agrega un juego:</h4>
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Buscar juego" [(ngModel)]="searchString">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="onSearch()"
+            [disabled]="searching">
+            <span *ngIf="searching" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+            {{searching ? 'Buscando...' : 'Buscar'}}
+          </button>
+        </div>
+      </div>
+      <div *ngIf="!errorMessage">
+        <div class="card mb-3" style="max-width: 540px;" *ngFor="let result of bggSearchResults">
+          <div class="row no-gutters">
+            <div class="col-md-4">
+              <img [src]="result.thumbnailUrl" class="card-img">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">{{result.name}}</h5>
+                <p class="card-text"><small class="text-muted">{{result.yearPublished}}</small></p>
+                <a class="card-link cursor-pointer" (click)="onSelectGame(result)">seleccionar</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+        {{errorMessage}}
+      </div>
+    </div>
+    <div class="col-md-8">
+      <form *ngIf="offerForm" [formGroup]="offerForm" (ngSubmit)="onSubmit()">
+        <div class="row" *ngIf="selectedGame">
+          <div class="col-md-4">
+            <h4>{{offerForm.value.game.name}}</h4>
+            <img [src]="offerForm.value.game.imageUrl" class="offer-img">
+          </div>
+          <div class="col-md-8">
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text">Precio</div>
+              </div>
+              <input type="number" class="form-control" formControlName="price">
+            </div>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <label class="input-group-text" for="selectCity">Ciudad</label>
+              </div>
+              <select class="custom-select" id="selectCity" formControlName="cityId">
+                <option *ngFor="let c of cities" [value]="c.id">{{c.name}}</option>
+              </select>
+            </div>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <label class="input-group-text" for="selectCondition">Condición</label>
+              </div>
+              <select class="custom-select" id="selectCondition" formControlName="condition">
+                <option *ngFor="let c of conditions" [value]="c.id">{{c.name}}</option>
+              </select>
+            </div>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <label class="input-group-text" for="selectMethod">Pago</label>
+              </div>
+              <select class="custom-select" id="selectMethod" formControlName="paymentMethod">
+                <option *ngFor="let m of methods" [value]="m.id">{{m.name}}</option>
+              </select>
+            </div>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <input type="checkbox" formControlName="shrinkwrapped">
+                </div>
+              </div>
+              <input type="text" class="form-control" placeholder="En envoltorio original" readonly>
+            </div>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Observaciones</span>
+              </div>
+              <textarea class="form-control" formControlName="description"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>

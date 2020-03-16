@@ -14,6 +14,11 @@ export const cities: City[] = [
     id: 1,
     name: 'Medellín',
     country: 1
+  },
+  {
+    id: 2,
+    name: 'Bogotá',
+    country: 1
   }
 ];
 
